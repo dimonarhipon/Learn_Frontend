@@ -1,0 +1,140 @@
+html, body {
+    margin: 0;
+    height: 100dvh;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 360px;
+    height: 640px;
+    margin: auto;
+    border: 1px solid #F1ECFF;
+}
+
+.main {
+    padding: 15px;
+}
+
+.price {
+    width: 100%;
+    height: 145px;
+    background-color: lightgray;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.price__value {
+    font-size: 4em;
+    margin: auto;
+}
+
+.choose {
+    display: flex;
+}
+
+.split__buttons {
+    margin: 0 15px 16px;
+}
+
+.choose__button {
+    padding: 0;
+    background-color: #F2F1FC;
+    color: #585892;
+    border-radius: 10px;
+    border: none;
+
+    height: 56px;
+    width: 69px;
+    /* cursor: pointer; */
+}
+
+.choose__button:disabled {
+    cursor: none;
+}
+
+.choose__button--active {
+    background-color: #585892;
+    color: #fff;
+}
+
+.choose__button:not(:last-child) {
+    margin-right: 8px;
+}
+
+.split__button--tip {}
+
+.split__point  {
+    display: flex;
+    flex-direction: column;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.distribution {
+    display: flex;
+    flex-direction: column;
+
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #F1ECFF;
+
+    background: var(--bg-primary-main, #FFF);
+    box-shadow: 0px 4px 20px 0px rgba(43, 44, 132, 0.04), 0px 0px 4px 0px rgba(44, 39, 101, 0.02);
+}
+
+.distribution__element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 38px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.distribution__element:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* .distribution__element:focus,
+.distribution__element:active, */
+.distribution__element--active {
+    border-color: #EA5614;
+    background-color: #F8F8FE;
+}
+
+.distribution__box {
+    display: flex;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    color: #71758E;    
+}
+
+.distribution__value {
+    margin-right: 4px;
+}
+
+.distribution__status {
+    color: #28AB8D;
+
+    text-align: center;
+    /* txt 4 sb */
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+ 
