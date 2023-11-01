@@ -1,140 +1,158 @@
-html, body {
-    margin: 0;
-    height: 100dvh;
+body, html { margin: 0}
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
 }
-
-.content {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
 .container {
-    width: 360px;
-    height: 640px;
-    margin: auto;
-    border: 1px solid #F1ECFF;
+	max-width: 500px;
+	width: 100%;
+	margin: auto;
 }
 
-.main {
-    padding: 15px;
+.payment__amount-box {
+	text-align: center;
 }
 
-.price {
-    width: 100%;
-    height: 145px;
-    background-color: lightgray;
-    display: flex;
-    margin-bottom: 16px;
+.header {
+	text-align: center;
 }
-
-.price__value {
-    font-size: 4em;
-    margin: auto;
-}
-
 .choose {
-    display: flex;
+  display: flex;
 }
 
 .split__buttons {
-    margin: 0 15px 16px;
+  display: flex;
+  justify-content: center;
+  margin: 0 15px 16px;
 }
 
 .choose__button {
-    padding: 0;
-    background-color: #F2F1FC;
-    color: #585892;
-    border-radius: 10px;
-    border: none;
+  padding: 0;
+  background-color: #F2F1FC;
+  color: #585892;
+  border-radius: 10px;
+  border: none;
 
-    height: 56px;
-    width: 69px;
-    /* cursor: pointer; */
+  height: 56px;
+  width: 25%;
+  cursor: pointer;
 }
 
 .choose__button:disabled {
-    cursor: none;
+  cursor: none;
+}
+
+.split__button:disabled {
+  cursor: none;
+  color: #A6A6C7;
+  /* background-color: #BCB8DA; */
 }
 
 .choose__button--active {
-    background-color: #585892;
-    color: #fff;
+  background-color: #585892;
+  color: #fff;
 }
 
 .choose__button:not(:last-child) {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
-.split__button--tip {}
-
 .split__point  {
-    display: flex;
-    flex-direction: column;
-    font-family: "Open Sans";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.split__underlined-text {
+  border-bottom: 1px solid currentColor;
 }
 
 .distribution {
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #F1ECFF;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #F1ECFF;
 
-    background: var(--bg-primary-main, #FFF);
-    box-shadow: 0px 4px 20px 0px rgba(43, 44, 132, 0.04), 0px 0px 4px 0px rgba(44, 39, 101, 0.02);
+  background: #FFF;
+  box-shadow: 0px 4px 20px 0px rgba(43, 44, 132, 0.04), 0px 0px 4px 0px rgba(44, 39, 101, 0.02);
 }
 
 .distribution__element {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    height: 38px;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 38px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.distribution__element.hidden {
+  display: none;
 }
 
 .distribution__element:not(:last-child) {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-/* .distribution__element:focus,
-.distribution__element:active, */
 .distribution__element--active {
-    border-color: #EA5614;
-    background-color: #F8F8FE;
+  border-color: #EA5614;
+  background-color: #F8F8FE;
 }
 
 .distribution__box {
-    display: flex;
-    font-family: "Open Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%;
-    color: #71758E;    
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  color: #71758E;
 }
 
 .distribution__value {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 .distribution__status {
-    color: #28AB8D;
+  color: #28AB8D;
 
-    text-align: center;
-    /* txt 4 sb */
-    font-family: Open Sans;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
 }
- 
+
+.distribution__range {
+  margin-left: 15px;
+}
+
+.splitting-step__btn-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 16px;
+}
+
+.splitting-step__back-btn {
+  width: 100%;
+  height: 80px;
+  font-size: 20px;
+  font-weight: 600;
+}

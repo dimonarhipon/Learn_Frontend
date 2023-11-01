@@ -8,74 +8,118 @@
     <link rel="stylesheet" href="./range.css">
     <script defer src="./range.js"></script>
 </head>
-<body>
-    <div class="content">
-        <div class="container">
-            <main class="main">
-                <div class="price">
-                    <div class="price__value">10000</div>
-                </div>
-                <div class="split">
-                    <div class="split__buttons choose">
-                        <button class="split__button split__button--tip choose__button">
-                            <div class="split__point">
-                                <span>Счёт</span>
-                                <span>чай</span>
-                            </div>
-                        </button>
-                        <button class="split__button choose__button choose__button--active">
-                            <div class="split__point">
-                                2
-                            </div>
-                        </button>
-                        <button class="split__button choose__button">
-                            <div class="split__point">
-                                3
-                            </div>
-                        </button>
-                        <button class="split__button choose__button">
-                            <div class="split__point">
-                                4
-                            </div>
-                        </button>
-                    </div>
 
-                    <div class="split__distribution distribution">
-                        <div class="distribution__element distribution__element--1">
-                            <div class="distribution__holder">
-                                <div class="distribution__box">
-                                    <div class="distribution__value distribution__bill">9000</div>
-                                    <div>₽</div>
-                                </div>
-                                <div class="distribution__status"></div>
-                            </div>
-                            <div class="distribution__range range">
-                                <input class="range__input" type="range">
-                                <div class="range__fill"></div>
-                            </div>
-                        </div>
+<body class="page">
+	<div class="container">
+		<header class="header">
+			<img src="./assets/images/logo.svg" alt="" class="header__logo" />
+			<span class="header__name">СЧЕТ</span>
+		</header>
 
-                        <div class="distribution__element distribution__element--2">
-                            <div class="distribution__holder">
-                                <div class="distribution__box">
-                                    <div class="distribution__value distribution__tip--2">9000</div>
-                                    <div>₽</div>
-                                </div>
+		<main class="main">
+			<div class="payment payment-step__payment">
 
-                                <div class="distribution__status"></div>
-                            </div>
-                            <div class="distribution__range range">
-                                <input class="range__input" type="range">
-                                <div class="range__fill"></div>
-                            </div>
-                        </div>
-                </div>
-            </main>
+				<div class="payment__info-box">
+					<div class="payment__amount-box content-box">
+						К оплате
+						<div class="payment__total-amount">
+							<span id="payment-amount" class="payment__amount"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="split">
+				<div class="split__buttons choose">
+					<button class="split__button split__button--bill-tips choose__button choose__button--active">
+						<div class="split__point">
+							<span>Счёт</span>
+							<span>чай</span>
+						</div>
+					</button>
+
+					<button class="split__button split__button--2 choose__button">
+						<div class="split__point">
+							2
+						</div>
+					</button>
+					<button class="split__button split__button--3 choose__button">
+						<div class="split__point">
+							3
+						</div>
+					</button>
+					<button class="split__button split__button--4 choose__button">
+						<div class="split__point">
+							4
+						</div>
+					</button>
+				</div>
+
+				<div class="split__distribution distribution">
+					<div class="distribution__element distribution__element--1 distribution__element--active">
+						<div class="distribution__holder">
+							<div class="distribution__box">
+								<div class="distribution__value distribution__bill"></div>
+							</div>
+							<div class="distribution__status"></div>
+						</div>
+
+						<div class="distribution__range range">
+							<div class="range__fill"></div>
+							<div class="range__pointer"></div>
+						</div>
+					</div>
+
+					<div class="distribution__element distribution__element--2">
+						<div class="distribution__holder">
+							<div class="distribution__box">
+								<div class="distribution__value distribution__tips--2"></div>
+							</div>
+							<div class="distribution__status"></div>
+						</div>
+
+						<div class="distribution__range range">
+							<div class="range__fill"></div>
+							<div class="range__pointer"></div>
+						</div>
+					</div>
 
 
-            <footer></footer>
-        </div>
-    </div>
+					<div class="distribution__element distribution__element--3">
+						<div class="distribution__holder">
+							<div class="distribution__box">
+								<div class="distribution__value distribution__tips--3"></div>
+							</div>
+							<div class="distribution__status"></div>
+						</div>
 
+						<div class="distribution__range range">
+							<div class="range__fill"></div>
+							<div class="range__pointer"></div>
+						</div>
+					</div>
+
+
+					<div class="distribution__element distribution__element--4">
+						<div class="distribution__holder">
+							<div class="distribution__box">
+								<div class="distribution__value distribution__tips--4"></div>
+							</div>
+							<div class="distribution__status"></div>
+						</div>
+
+						<div class="distribution__range range">
+							<div class="range__fill"></div>
+							<div class="range__pointer"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</main>
+	</div>
+
+  <footer></footer>
 </body>
 </html>
