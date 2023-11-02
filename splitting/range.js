@@ -10,10 +10,39 @@ function splittingStep() {
   priceValue.textContent = total;
 
   var splitContainer = document.querySelector('.split');
-  var buttonBillTips = splitContainer.querySelector('.split__button--bill-tips');
-  var buttonSplit2 = splitContainer.querySelector('.split__button--2');
-  var buttonSplit3 = splitContainer.querySelector('.split__button--3');
-  var buttonSplit4 = splitContainer.querySelector('.split__button--4');
+
+  var BUTTONS = {
+    billTip: splitContainer.querySelector('.split__button--bill-tips'),
+    split2: splitContainer.querySelector('.split__button--2'),
+    split3: splitContainer.querySelector('.split__button--3'),
+    split4: splitContainer.querySelector('.split__button--4'),
+  };
+
+  var INITS = {
+    billTip: initBillTip,
+    split2: initSplit2,
+    split3: initSplit3,
+    split4: initSplit4,
+  };
+
+  var splitButtons = [
+    {
+      splitButton: BUTTONS.billTip,
+      initSplit: INITS.billTip
+    },
+    {
+      splitButton: BUTTONS.split2,
+      initSplit: INITS.split2
+    },
+    {
+      splitButton: BUTTONS.split3,
+      initSplit: INITS.split3
+    },
+    {
+      splitButton: BUTTONS.split4,
+      initSplit: INITS.split4
+    },
+  ];
 
   var distribution = document.querySelector('.distribution');
   var element1 = distribution.querySelector('.distribution__element--1');
@@ -44,6 +73,18 @@ function splittingStep() {
     this.max = total;
     this.min = 0;
     this.step;
+
+		// инициализация
+    this.init = function init(value, syncRanges) {
+      this.value = value;
+      this.calcFill();
+      this.pointerPosition();
+
+      this.pointer.addEventListener('touchmove', syncRanges);
+      this.pointer.addEventListener('touchstart', syncRanges);
+      this.range.addEventListener('touchstart', syncRanges);
+      this.range.addEventListener('touchmove', syncRanges);
+    }
 
     // Расчёт заливки
     this.calcFill = function () {
@@ -103,24 +144,10 @@ function splittingStep() {
     }
   }
 
-
   SettingsRange1 = new SettingsRange(range1);
   SettingsRange2 = new SettingsRange(range2);
   SettingsRange3 = new SettingsRange(range3);
   SettingsRange4 = new SettingsRange(range4);
-
-  var splittingStepBackBtn = document.querySelector('#splitting-step-back-btn');
-
-	function formatAmount(amount) {
-		var formattedAmount = amount.toLocaleString('ru', {
-			style: 'currency',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 2,
-			currency: 'rub',
-		});
-
-		return formattedAmount;
-	}
 
   var normalizeAmount = function (number) {
     return Number(number.toFixed(3).slice(0, -1));
@@ -234,8 +261,8 @@ function splittingStep() {
     range3.pointerPosition();
   }
 
+ // Синхронизация четырёх range
   function syncRangesSplit4(range1, range2, range3, range4, event) {
-    console.log(event.currentTarget)
     if (event.currentTarget === SettingsRange1.range) {
       // перемещаем pointer range1
       range1.pointerMove(event, bill);
@@ -292,7 +319,6 @@ function splittingStep() {
 
     if (event.currentTarget === SettingsRange4.range) {
       var noMore = normalizeAmount(total - range1.value - range2.value);
-      console.log('SettingsRange4.range', 'noMore', noMore);
       if (range4.value >= 0 && range4.value <= noMore) {
         // перемещаем pointer range4
         range4.pointerMove(event, tips4, noMore);
@@ -325,18 +351,10 @@ function splittingStep() {
   }
 
   function checkRanges () {
-    if (typeof SettingsRange1 !== 'undefined') {
-      deleteRangeListeners(SettingsRange1);
-    }
-    if (typeof SettingsRange2 !== 'undefined') {
-      deleteRangeListeners(SettingsRange2);
-    }
-    if (typeof SettingsRange3 !== 'undefined') {
-      deleteRangeListeners(SettingsRange3);
-    }
-    if (typeof SettingsRange4 !== 'undefined') {
-      deleteRangeListeners(SettingsRange4);
-    }
+    if (typeof SettingsRange1 !== 'undefined') deleteRangeListeners(SettingsRange1);
+    if (typeof SettingsRange2 !== 'undefined') deleteRangeListeners(SettingsRange2);
+    if (typeof SettingsRange3 !== 'undefined') deleteRangeListeners(SettingsRange3);
+    if (typeof SettingsRange4 !== 'undefined') deleteRangeListeners(SettingsRange4);
   }
 
   // Удаление обработчиков у SettingsRange
@@ -358,26 +376,13 @@ function splittingStep() {
     }
   }
 
-  function initRange(SettingsRange, value, syncRanges) {
-    SettingsRange.value = value;
-    SettingsRange.calcFill();
-    SettingsRange.pointerPosition();
-
-    SettingsRange.pointer.addEventListener('touchmove', syncRanges);
-    SettingsRange.pointer.addEventListener('touchstart', syncRanges);
-    SettingsRange.range.addEventListener('touchstart', syncRanges);
-    SettingsRange.range.addEventListener('touchmove', syncRanges);
-
-    return SettingsRange;
-  }
-
   // Функции инициализации
   function initBillTip() {
     element3.classList.add('hidden');
     element4.classList.add('hidden');
 
-    SettingsRange1 = initRange(SettingsRange1, amount, syncRangesSplit2Handler);
-    SettingsRange2 = initRange(SettingsRange2, tips, syncRangesSplit2Handler);
+    SettingsRange1.init(amount, syncRangesSplit2Handler);
+    SettingsRange2.init(tips, syncRangesSplit2Handler);
 
     bill.textContent = formatAmount(Number(amount));
     tips2.textContent = formatAmount(Number(tips));
@@ -390,8 +395,8 @@ function splittingStep() {
 
     var initValue = total / 2;
 
-    SettingsRange1 = initRange(SettingsRange1, initValue + remainder, syncRangesSplit2Handler);
-    SettingsRange2 = initRange(SettingsRange2, initValue, syncRangesSplit2Handler);
+    SettingsRange1.init(initValue + remainder, syncRangesSplit2Handler);
+    SettingsRange2.init(initValue, syncRangesSplit2Handler);
 
     bill.textContent = formatAmount(Number(initValue + remainder));
     tips2.textContent = formatAmount(Number(initValue));
@@ -404,9 +409,9 @@ function splittingStep() {
 
     var initValue = total / 3;
 
-    SettingsRange1 = initRange(SettingsRange1, initValue + remainder, syncRangesSplit3Handler);
-    SettingsRange2 = initRange(SettingsRange2, initValue, syncRangesSplit3Handler);
-    SettingsRange3 = initRange(SettingsRange3, initValue, syncRangesSplit3Handler);
+    SettingsRange1.init(initValue + remainder, syncRangesSplit3Handler);
+    SettingsRange2.init( initValue, syncRangesSplit3Handler);
+    SettingsRange3.init(initValue, syncRangesSplit3Handler);
 
     priceValue.textContent = formatAmount(Number(SettingsRange1.value));
     bill.textContent = formatAmount(Number(initValue + remainder));
@@ -420,10 +425,10 @@ function splittingStep() {
 
     var initValue = total / 4;
 
-    SettingsRange1 = initRange(SettingsRange1, initValue + remainder, syncRangesSplit4Handler);
-    SettingsRange2 = initRange(SettingsRange2, initValue, syncRangesSplit4Handler);
-    SettingsRange3 = initRange(SettingsRange3, initValue, syncRangesSplit4Handler);
-    SettingsRange4 = initRange(SettingsRange4, initValue, syncRangesSplit4Handler);
+    SettingsRange1.init(initValue + remainder, syncRangesSplit4Handler);
+    SettingsRange2.init(initValue, syncRangesSplit4Handler);
+    SettingsRange3.init(initValue, syncRangesSplit4Handler);
+    SettingsRange4.init(initValue, syncRangesSplit4Handler);
 
     priceValue.textContent = formatAmount(Number(SettingsRange1.value));
     bill.textContent = formatAmount(Number(initValue + remainder));
@@ -432,49 +437,24 @@ function splittingStep() {
     tips4.textContent = formatAmount(Number(initValue));
   }
 
-  // Переключение кнопок делений счёта
-  var splitButtons = document.querySelectorAll('.split__button');
+  // Инициализация
+  splitButtons[0].initSplit()
 
-  splitButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      splitButtons.forEach(function (btn) {
-        btn.classList.remove('choose__button--active');
-      });
-      this.classList.add('choose__button--active');
-
-      if (buttonBillTips.classList.contains('choose__button--active')) {
-        checkRanges();
-        initBillTip();
-      }
-      if (buttonSplit2.classList.contains('choose__button--active')) {
-        checkRanges();
-        initSplit2();
-      }
-      if (buttonSplit3.classList.contains('choose__button--active')) {
-        checkRanges();
-        initSplit3();
-      }
-      if (buttonSplit4.classList.contains('choose__button--active')) {
-        checkRanges();
-        initSplit4();
-      }
+  // деактивация всех кнопок
+  function deactivateButtons() {
+    checkRanges();
+    Object.keys(BUTTONS).forEach(function(key) {
+      BUTTONS[key].classList.remove('active');
     });
+  }
 
-    if (buttonBillTips.classList.contains('choose__button--active')) {
-      checkRanges();
-      initBillTip();
-    }
-    if (buttonSplit2.classList.contains('choose__button--active')) {
-      initSplit2();
-    }
-    if (buttonSplit3.classList.contains('choose__button--active')) {
-      checkRanges();
-      initSplit3();
-    }
-    if (buttonSplit4.classList.contains('choose__button--active')) {
-      checkRanges();
-      initSplit4();
-    }
+  // Обработчики на все кнопки
+  splitButtons.forEach(button => {
+    button.splitButton.addEventListener('click', () => {
+      deactivateButtons();
+      button.splitButton.classList.add('active');
+      button.initSplit();
+    });
   });
 }
 document.addEventListener('DOMContentLoaded', splittingStep);
