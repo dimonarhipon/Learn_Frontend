@@ -14,9 +14,21 @@ const artificialIncludes = (baseStr, searchStr, startIndex = 0) => {
 
 	if (typeof baseStr === 'number') throw new SyntaxError('Invalid type');
 
-  for (let i = startIndex; i < baseStr.length; i++) {
-    if (baseStr[i] === searchStr) return true;
+	for (let i = startIndex; i <= baseStr.length - searchStr.length; i++) {
+    let found = true;
+
+    for (let j = 0; j < searchStr.length; j++) {
+      if (baseStr[i + j] !== searchStr[j]) {
+        found = false;
+        break;
+      }
+    }
+
+    if (found) {
+      return true;
+    }
   }
+
 	return false;
 }
 // console.log(artificialIncludes('Хлынов', 'м'))
@@ -24,13 +36,17 @@ const artificialIncludes = (baseStr, searchStr, startIndex = 0) => {
 
 // Получение даты в формате с использование padStart YYYY-MM-DD HH:MM:SS
 
+const padNumber = (num) => {
+  return num.toString().padStart(2, '0');
+}
+
 const getFormatDate = (date) => {
   const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, 0);
-  const day = date.getDate().toString().padStart(2, 0);
-  const hours = date.getHours().toString().padStart(2, 0);
-  const minute = date.getMinutes().toString().padStart(2, 0);
-  const second = date.getSeconds().toString().padStart(2, 0);
+  const month = padNumber(date.getMonth() + 1);
+  const day = padNumber(date.getDate());
+  const hours = padNumber(date.getHours());
+  const minute = padNumber(date.getMinutes());
+  const second = padNumber(date.getSeconds());
   const result = `${year}-${month}-${day} ${hours}:${minute}:${second}`;
   return result;
 }
