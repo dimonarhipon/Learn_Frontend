@@ -3,15 +3,14 @@ const uploaded = document.querySelector('#uploaded');
 
 const MAX_SIZE_FILE = 10_485_760;
 
-const uploadImage = () => {
+const uploadImage = (file) => {
   const reader = new FileReader();
 
 	const blob = URL.createObjectURL(file);
-
-	console.log(blob)
+	console.log(blob);
 
   reader.onload = () => {
-    uploaded.src = reader.result;
+    uploaded.src = blob;
   };
 
   reader.readAsDataURL(file);
@@ -29,6 +28,6 @@ upload.addEventListener('change', (event) => {
 	}
 
 	if (file && file.size < MAX_SIZE_FILE) {
-		uploadImage();
+		return uploadImage(file);
 	}
 });
