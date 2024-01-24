@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="./sanitize.css">
 	<link rel="stylesheet" href="./style.css">
 	<script defer src="./function/script.js"></script>
+	<script defer src="./object/structure.js"></script>
 </head>
 <body class="body">
 	<header>
@@ -14,7 +15,128 @@
 	</header>
 	<main class="main">
 		<div class="container">
+			<h2>Задание</h2>
+			<!-- <ol>
+				<li>Подготовить операторы сравнения, бинарные операторы</li>
+				<li>Что такое this</li>
+				<li>6.3 и замыкание</li>
 
+				<li>Написать код для отчёта</li>
+				<li>Посмотреть какой метод строки приведёт к единому виду 'Tommy', '   Tommy'; '5', '05'
+					<br> Ответ: метод padStart(нужная длинна, символ для добавления)
+				</li>
+				<li>Реализовать метод includes(source, ...) pos через функцию</li>
+			</ol>
+
+			<h2>Проверить</h2>
+			<ol>
+				<li>parseInt(0b124)</li>
+			</ol> -->
+
+			<h2>На реализацию</h2>
+
+			<ol>
+				<li>
+					<details><summary>1. Стайлгайд (css)</summary></details>
+
+					<ol>
+						<li>
+							<details>
+								<summary>1.1 !important</summary>
+								<p>
+									Использование !important как правило означает, что у вас есть проблема в проектировании css. !important хакает каскадность стилей, осложняет поддержку кода и блокирует другие стили, которые переопределяют свойства. В результате может быть не ясно какие конкретно стили должны быть применены.
+								</p>
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary>1.2 Не превышай z-index</summary>
+								<p>
+									Использовать только уровни от 1 до 3
+								</p>
+							</details>
+						</li>
+						<li>пункт Д
+							<ol>
+								<li>пункт Е</li>
+								<li>пункт Ж</li>
+								<li>пункт З</li>
+							</ol>
+						</li>
+						<li>пункт И</li>
+					</ol>
+				</li>
+
+				<li>пункт Б
+					<ol>
+						<li>пункт В</li>
+						<li>пункт Г</li>
+						<li>пункт Д
+							<ol>
+								<li>пункт Е</li>
+								<li>пункт Ж</li>
+								<li>пункт З</li>
+							</ol>
+						</li>
+						<li>пункт И</li>
+					</ol>
+				</li>
+
+				<li>пункт Л</li>
+				<li>пункт М</li>
+		 </ol>
+
+
+
+			<style>
+				ol {
+					list-style: none;
+					/* Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0 */
+					counter-reset: li;
+				}
+				li { position: relative; }
+				li:before {
+					position: absolute;
+					left: -5px;
+					transform: translate(-100%, 0);
+					counter-increment: li;
+					content: counters(li, ".") ". ";
+				}
+
+				summary::marker {
+					color: yellow;
+					font-size: 1.2em;
+				}
+			</style>
+
+			<ol>
+				<li>
+					<details>
+						<summary>Стайлгайд (css)</summary>
+
+						<ol>
+							<li>
+								<details>
+									<summary> Не использовать !important</summary>
+									<p>
+										Использование !important как правило означает, что у вас есть проблема в проектировании css. !important хакает каскадность стилей, осложняет поддержку кода и блокирует другие стили, которые переопределяют свойства. В результате может быть не ясно какие конкретно стили должны быть применены.
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details>
+									<summary> Не превышай z-index</summary>
+									<p>
+										Использовать только уровни от 1 до 3
+									</p>
+								</details>
+							</li>
+						</ol>
+					</details>
+				</li>
+
+			</ol>
 		</div>
 	</main>
 </body>
