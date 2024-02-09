@@ -39,40 +39,40 @@ function main() {
 
 // my project
 
-export interface ICheckboxProps extends ComponentProps<'input'> {
-	type?: never;
-	onDelete?: VoidFunction;
-	children: ReactNode;
-}
+// export interface ICheckboxProps extends ComponentProps<'input'> {
+// 	type?: never;
+// 	onDelete?: VoidFunction;
+// 	children: ReactNode;
+// }
 
 
-export interface IFieldDatePicker extends IFieldProps {
-	type?: never;
-	className?: string;
-	placeholder?: string;
-}
+// export interface IFieldDatePicker extends IFieldProps {
+// 	type?: never;
+// 	className?: string;
+// 	placeholder?: string;
+// }
 
 
-// 6S
+// // 6S
 
-export function useAtomState<AtomType extends StateAtom<any>>(
-  atom: AtomType
-): AtomType extends StateAtom<infer State> ? Readonly<State> : never {
+// export function useAtomState<AtomType extends StateAtom<any>>(
+//   atom: AtomType
+// ): AtomType extends StateAtom<infer State> ? Readonly<State> : never {
 
 
-// строка
-emit<Key extends keyof Events>(type: undefined extends Events[Key] ? Key : never): void;
+// // строка
+// emit<Key extends keyof Events>(type: undefined extends Events[Key] ? Key : never): void;
 
-// в
-export interface Emitter<Events extends Record<EventType, unknown>> {
-	all: EventHandlerMap<Events>;
+// // в
+// export interface Emitter<Events extends Record<EventType, unknown>> {
+// 	all: EventHandlerMap<Events>;
 
-	on<Key extends keyof Events>(type: Key, handler: Handler<Events[Key]>): void;
-	on(type: '*', handler: WildcardHandler<Events>): void;
+// 	on<Key extends keyof Events>(type: Key, handler: Handler<Events[Key]>): void;
+// 	on(type: '*', handler: WildcardHandler<Events>): void;
 
-	off<Key extends keyof Events>(type: Key, handler?: Handler<Events[Key]>): void;
-	off(type: '*', handler: WildcardHandler<Events>): void;
+// 	off<Key extends keyof Events>(type: Key, handler?: Handler<Events[Key]>): void;
+// 	off(type: '*', handler: WildcardHandler<Events>): void;
 
-	emit<Key extends keyof Events>(type: Key, event: Events[Key]): void;
-	emit<Key extends keyof Events>(type: undefined extends Events[Key] ? Key : never): void;
-}
+// 	emit<Key extends keyof Events>(type: Key, event: Events[Key]): void;
+// 	emit<Key extends keyof Events>(type: undefined extends Events[Key] ? Key : never): void;
+// }
