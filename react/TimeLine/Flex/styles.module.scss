@@ -1,0 +1,13 @@
+@import 'src/sass-globals/index';
+
+.flex {
+  display: flex;
+
+  &[data-direction] {
+    flex-direction: attr(data-direction);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
