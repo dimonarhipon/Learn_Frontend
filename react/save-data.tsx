@@ -1,9 +1,11 @@
 
+// const defaultOption: Option = { value: '', text: ''}
+
 // function Content() {
-// 	const [paymentTypes, setPaymentTypes] = useState([{ value: '', text: '' }]);
+// 	const [paymentTypes, setPaymentTypes] = useState<Option>([]);
 
 // 	useEffect(() => {
-// 			const types = mainState.projectInfo.payment_types.map((payment) => ({
+// 			const types: Option[] = (mainState.projectInfo.payment_types || []).map((payment) => ({
 // 					value: payment.name,
 // 					text: payment.name,
 // 			})) ?? null;
@@ -17,7 +19,7 @@
 // 		<div>
 // 				{!mainState.hasSelectedPrepaidSlots && (
 // 						<div className={styles.form_line}>
-// 							<Select formField={formFields.payType} options={paymentTypes} label={paymentTypes.text} activeOption={paymentTypes[0].value} />
+// 							<Select formField={formFields.payType} options={paymentTypes.length > 0 ? </Select>} label={paymentTypes.text} activeOption={paymentTypes[0].value} />
 // 						</div>
 // 				)}
 // 		</div>
@@ -28,24 +30,26 @@
 // const PaymentDetailsFieldset: FC<IPaymentFieldset> = (props) => {
 // 	const { payments: paymentMethods } = props;
 
-// 	const [payments, setPayments] = useState(paymentMethods);
-// 	const [valuePayment, setValuePayment] = useState<string>('');
+// 	const [payments, setPayments] = useState<Type>(paymentMethods);
+// 	const [valuePayment, setValuePayment] = useState('');
 
-// 	const lastIndex = payments[payments.length - 1].id || 0;
+
 
 // 	const onClickAddPaymentMethod = () => {
-// 			if (valuePayment.trim() !== '') {
-// 					const nextIndex = String(+lastIndex + 1);
-// 					const newElement = createPaymentMethod(valuePayment, nextIndex);
+// 		const lastIndex = payments.at(-1).id || 0;
 
-// 					setPayments([...payments, newElement]);
-// 					setValuePayment('');
-// 			}
+// 		if (valuePayment.trim()) {
+// 				const nextIndex = String(+lastIndex + 1);
+// 				const newElement = createPaymentMethod(valuePayment, nextIndex);
+
+// 				setPayments([...payments, newElement]);
+// 				setValuePayment('');
+// 		}
 // 	};
 
 // 	return (
 // 		<div>
-// 			{payments.length && (
+// 			{payments.length > 0 && (
 // 				<Flex gap="10px 40px" wrap="wrap" direction={{ desktop: 'row', mobile: 'column' }}>
 // 						{payments.map((paymentMethod) => {
 // 								setValue(`payment_types.${paymentMethod.name}`, false)

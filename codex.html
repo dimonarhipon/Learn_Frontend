@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кодекс для Frontend</title>
+</head>
+<body>
+	<div class="container">
+		<h1>PAY2ME frontend codex</h1>
+		<ol>
+			<li>
+				<details>
+					<summary><h2>Technology stack</h2></summary>
+					<ul>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>JS</li>
+						<li>TS</li>
+						<li>React</li>
+						<li>Redux</li>
+						<li>MUI</li>
+						<li>Emotion</li>
+					</ul>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary><h2>File structure inside <code class="code">src</code> folder</h2></summary>
+
+					<ul>
+						<li>
+							<code class="code">api</code> - axios configuration &amp; api reusable functions
+						</li>
+						<li>
+							<code class="code">assets</code> - fonts, images &amp; other assets
+						</li>
+						<li>
+							<code class="code">components</code> - reusable react components
+						</li>
+						<li>
+							<code class="code">components/ui</code> - small reusable react components (like buttons, inputs, checkboxes etc.)
+						</li>
+						<li>
+							<code class="code">hooks</code> - reusable hooks
+						</li>
+						<li>
+							<code class="code">i18n</code> - multi-language configuration
+						</li>
+						<li>
+							<code class="code">pages</code> - pages react components
+						</li>
+						<li>
+							<code class="code">routes</code> - routing configuration
+						</li>
+						<li>
+							<code class="code">store</code> - redux store configuration
+						</li>
+						<li>
+							<code class="code">styles</code> - application theme configuration &amp; global styles
+						</li>
+						<li>
+							<code class="code">types</code> - reusable types
+						</li>
+						<li>
+							<code class="code">utils</code> - reusable constants, helper functions etc.
+						</li>
+					</ul>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary><h2>Naming</h2></summary>
+
+					<ol>
+						<li>
+							<details>
+								<summary><h3>Nouns</h3></summary>
+
+								<ul>
+									<li><code class="code">payload</code></li>
+									<li><code class="code">response</code></li>
+									<li><code class="code">routes</code></li>
+									<li><code class="code">path</code></li>
+									<li><code class="code">entity</code></li>
+									<li><code class="code">illustration</code></li>
+									<li><code class="code">phone</code></li>
+									<li><code class="code">pan</code></li>
+									<li><code class="code">otp</code></li>
+									<li><code class="code">password</code></li>
+									<li><code class="code">rePassword</code></li>
+									<li><code class="code">data</code></li>
+									<li><code class="code">variant</code></li>
+									<li><code class="code">text</code></li>
+									<li><code class="code">box</code></li>
+									<li><code class="code">container</code></li>
+									<li><code class="code">wrapper</code></li>
+									<li><code class="code">title</code></li>
+									<li><code class="code">subtitle</code></li>
+									<li><code class="code">head</code></li>
+									<li><code class="code">signIn</code></li>
+									<li><code class="code">signOut</code></li>
+									<li><code class="code">signUp</code></li>
+									<li><code class="code">errors</code></li>
+									<li><code class="code">host</code></li>
+									<li><code class="code">chpass</code></li>
+									<li><code class="code">caption</code></li>
+								</ul>
+							</details>
+						</li>
+
+						<li>
+							<details>
+								<summary><h3>Verbs</h3></summary>
+
+								<ul>
+									<li><code class="code">get</code></li>
+									<li><code class="code">set</code></li>
+									<li><code class="code">create</code></li>
+									<li><code class="code">update</code></li>
+									<li><code class="code">delete</code></li>
+									<li><code class="code">handle</code></li>
+									<li><code class="code">calc</code></li>
+									<li><code class="code">check</code></li>
+									<li><code class="code">reset</code></li>
+									<li><code class="code">toggle</code></li>
+									<li><code class="code">show</code></li>
+									<li><code class="code">hide</code></li>
+									<li><code class="code">open</code></li>
+									<li><code class="code">close</code></li>
+									<li><code class="code">edit</code></li>
+									<li><code class="code">correct</code></li>
+								</ul>
+							</details>
+						</li>
+
+						<li>
+							<details>
+								<summary><h3>Shorts</h3></summary>
+
+								<ul>
+									<li>event: <code class="code">e</code></li>
+									<li>button: <code class="code">btn</code></li>
+									<li>index: <code class="code">i</code></li>
+									<li>array: <code class="code">arr</code></li>
+									<li>object: <code class="code">obj</code></li>
+									<li>error: <code class="code">err</code></li>
+									<li>response: <code class="code">res</code></li>
+									<li>request: <code class="code">req</code></li>
+									<li>parameters: <code class="code">params</code></li>
+									<li>arguments: <code class="code">args</code></li>
+									<li>authorization: <code class="code">auth</code></li>
+									<li>information: <code class="code">info</code></li>
+									<li>configuration: <code class="code">config</code></li>
+									<li>element: <code class="code">el</code></li>
+									<li>function: <code class="code">fn</code></li>
+									<li>image: <code class="code">img</code></li>
+									<li>integer: <code class="code">int</code></li>
+									<li>language: <code class="code">lang</code></li>
+									<li>previous: <code class="code">prev</code></li>
+									<li>accumulator: <code class="code">acc</code></li>
+								</ul>
+							</details>
+						</li>
+
+						<li>
+							<details>
+								<summary><h3>Booleans</h3></summary>
+
+								<ul>
+									<li><code class="code">isVisible</code></li>
+									<li><code class="code">isHidden</code></li>
+									<li><code class="code">isCollapsed</code></li>
+									<li><code class="code">isLoading</code></li>
+									<li><code class="code">isOpen</code></li>
+									<li><code class="code">isMobileView</code></li>
+									<li><code class="code">isDesktopView</code></li>
+									<li><code class="code">isDisabled</code></li>
+									<li><code class="code">isAvailable</code></li>
+									<li><code class="code">isValid</code></li>
+									<li><code class="code">isConfirmed</code></li>
+								</ul>
+							</details>
+						</li>
+					</ol>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary><h2>Installation</h2></summary>
+
+					<ol>
+						<li>Install the latest version of Node.js 18</li>
+						<li>Run <code class="code">npm i</code> in the project directory</li>
+					</ol>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary><h2>Available scripts</h2></summary>
+
+					<p>In the project directory, you can run:</p>
+
+					<h3><code class="code">npm start</code></h3>
+
+					<p>Runs the app in the development mode.\
+						Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
+						<p>The page will reload if you make edits.\
+						You will also see any lint errors in the console.</p>
+				</details>
+			</li>
+
+
+			<li>
+				<details>
+					<summary>1. Стайлгайд (css)</summary>
+
+					<ol>
+						<li>
+							<details>
+								<summary>1.1 !important</summary>
+								<p>
+									Использование !important как правило означает, что у вас
+									есть проблема в проектировании css. !important хакает
+									каскадность стилей, осложняет поддержку кода и блокирует
+									другие стили, которые переопределяют свойства. В результате
+									может быть не ясно какие конкретно стили должны быть
+									применены.
+								</p>
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary>1.2 Не превышай z-index</summary>
+								<p>Использовать только уровни от 1 до 3</p>
+							</details>
+						</li>
+					</ol>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary>2. </summary>
+
+					<ol>
+						<li>
+							<details>
+								<summary>2.1</summary>
+								<p></p>
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary>2.2 </summary>
+								<p></p>
+							</details>
+						</li>
+					</ol>
+				</details>
+			</li>
+		</ol>
+
+		<ol>
+			<li>
+				<details>
+					<summary>1. Стайлгайд (CSS)</summary>
+					<ol>
+						<li>
+							<details>
+								<summary>1.1 Избегать !important</summary>
+								<p>
+									Использование !important как правило означает наличие
+									проблем в структуре CSS. !important нарушает
+									каскадность, усложняет поддержку кода и блокирует
+									переопределение свойств. В итоге может быть непонятно,
+									какие стили применяются.
+								</p>
+							</details>
+						</li>
+
+						<li>
+							<details>
+								<summary>1.2 Не злоупотреблять z-index</summary>
+								<p>Использовать только уровни от 1 до 3.</p>
+							</details>
+						</li>
+					</ol>
+				</details>
+			</li>
+			<li>
+
+				<details>
+					<summary>2. JavaScript</summary>
+					<ol>
+						<li>
+							<details>
+								<summary>
+									2.1 Избегать глобальных переменных
+								</summary>
+								<p>
+									<code class="code">
+										var count = 0;
+									</code>
+
+									Вместо var использовать let/const в блоке.
+								</p>
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary>2.2 Называть функции с глаголами</summary>
+								<p>
+									Имена функций должны начинаться с глагола, например
+									getValue(), setName() и т.д.
+								</p>
+							</details>
+						</li>
+					</ol>
+				</details>
+			</li>
+		</ol>
+	</div>
+
+
+	<style>
+		.container {
+			max-width: 810px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		h1 {
+			text-align: center;
+		}
+		h2, h3 {
+			display: inline-block;
+			margin: 0 0 10px;
+		}
+		details {
+			margin: 10px;
+			border-radius: 4px;
+		}
+		code {
+			font-family: monospace;
+			background: rgba(135,131,120,.15);
+			padding: 0px 5px;
+			border-radius: 4px;
+			color: #EB5757;
+		}
+
+		ol {
+			padding-left: 20px;
+			list-style: none;
+		}
+		li {
+			font-size: 20px;
+		}
+		summary {
+			width: 100%;
+			font-weight: bold;
+			padding: 10px;
+			padding: 7px 5px;
+			/* background-color: lightslategrey; */
+			cursor: pointer;
+			border-radius: 10px;
+		}
+	</style>
+
+</body>
+</html>

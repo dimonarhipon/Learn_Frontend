@@ -14,3 +14,8 @@ new Date().getTimezoneOffset() // смещение часового пояса �
 
 Date.now()  // текущее кол. милисекунд
 Date.parse() // преобразует строки в кол. милисекунд 'Fri Jan 02 1970 03:00:00 GMT+0300'
+
+
+const obj2 = { name: 'Дима' }
+// const obj1 = Object.create(null)
+// const obj2 = Object.create()

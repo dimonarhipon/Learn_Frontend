@@ -228,7 +228,7 @@ const hashMapOrders = function() {
 	ordered.forEach((order) => {
 		if (map.has(order.name)) {
 			map.set(order.name, [...map.get(order.name), order]);
-			// debugger
+
 		} else {
 			map.set(order.name, [order]);
 		}

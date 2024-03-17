@@ -1,0 +1,316 @@
+const data = {
+	from: 6,
+	onClickItem: (order) => {};
+	orders: [
+			{
+					"id": "1",
+					"name": "Имя 1",
+					"description": "Описание 1",
+					"price": "1000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test1.jpeg"
+					}
+			},
+			{
+					"id": "2",
+					"name": "Имя 2",
+					"description": "Описание 2",
+					"price": "2000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test2.jpeg"
+					}
+			}
+			{
+					"id": "3",
+					"name": "Имя 3",
+					"description": "Описание 3",
+					"price": "3000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test3.jpeg"
+					}
+			},
+					{
+					"id": "4",
+					"name": "Имя 4",
+					"description": "Описание 4",
+					"price": "4000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test4.jpeg"
+					}
+			},
+					{
+					"id": "5",
+					"name": "Имя 5",
+					"description": "Описание 5",
+					"price": "5000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test5.jpeg"
+					}
+			},
+			{
+					"id": "6",
+					"name": "Имя 6",
+					"description": "Описание 6",
+					"price": "6000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test6.jpeg"
+					}
+			}
+			{
+					"id": "7",
+					"name": "Имя 7",
+					"description": "Описание 7",
+					"price": "7000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test7.jpeg"
+					}
+			},
+					{
+					"id": "8",
+					"name": "Имя 8",
+					"description": "Описание 8",
+					"price": "8000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test8.jpeg"
+					}
+			},
+					{
+					"id": "9",
+					"name": "Имя 9",
+					"description": "Описание 9",
+					"price": "9000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test9.jpeg"
+					}
+			},
+			{
+					"id": "10",
+					"name": "Имя 10",
+					"description": "Описание 10",
+					"price": "10000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test10.jpeg"
+					}
+			}
+			{
+					"id": "11",
+					"name": "Имя 11",
+					"description": "Описание 11",
+					"price": "11000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test11.jpeg"
+					}
+			},
+					{
+					"id": "12",
+					"name": "Имя 12",
+					"description": "Описание 12",
+					"price": "12000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test12.jpeg"
+					}
+			},
+					{
+					"id": "13",
+					"name": "Имя 13",
+					"description": "Описание 13",
+					"price": "13000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test13.jpeg"
+					}
+			},
+			{
+					"id": "14",
+					"name": "Имя 14",
+					"description": "Описание 14",
+					"price": "14000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test14.jpeg"
+					}
+			}
+			{
+					"id": "15",
+					"name": "Имя 15",
+					"description": "Описание 15",
+					"price": "15000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test15.jpeg"
+					}
+			},
+					{
+					"id": "16",
+					"name": "Имя 16",
+					"description": "Описание 16",
+					"price": "16000",
+					"params": {
+							"activity": [
+									"activity_1",
+									"activity_2"
+							],
+							"image_url": "test16.jpeg"
+					}
+			},
+	],
+	result: [
+			{
+					"id": "6424",
+					"name": "Имя 1",
+					"from": "2024-03-11 12:00:00",
+					"to": "2024-03-11 12:30:00",
+					"is_paid": "0",
+					"rental_order_id": "74862668",
+					"first_name": "Имя 181",
+					"phone": "+7 (927) 621-11-73",
+					"new": "1"
+			},
+			{
+					"id": "6425",
+					"name": "Имя 1",
+					"from": "2024-03-11 12:30:00",
+					"to": "2024-03-11 13:00:00",
+					"is_paid": "0",
+					"rental_order_id": "74862668",
+					"first_name": "Имя 181",
+					"phone": "+7 (927) 953-22-17",
+					"new": "1"
+			},
+			{
+					"id": "6426",
+					"name": "Имя 1",
+					"from": "2024-03-11 13:00:00",
+					"to": "2024-03-11 13:30:00",
+					"is_paid": "0",
+					"rental_order_id": "74862668",
+					"first_name": "Имя 181",
+					"phone": "+7 (927) 216-58-72",
+					"new": "1"
+			},
+			{
+					"id": "6427",
+					"name": "Имя 1",
+					"from": "2024-03-11 13:30:00",
+					"to": "2024-03-11 14:00:00",
+					"is_paid": "0",
+					"rental_order_id": "74862668",
+					"first_name": "Имя 181",
+					"phone": "+7 (927) 232-36-51",
+					"new": "1"
+			},
+			{
+					"id": "6444",
+					"name": "TIGE Z3",
+					"from": "2024-03-11 12:30:00",
+					"to": "2024-03-11 13:00:00",
+					"is_paid": "0",
+					"rental_order_id": "77266582",
+					"first_name": "First Test",
+					"phone": "+7 (921) 128-78-52",
+					"new": "1"
+			},
+			{
+					"id": "6445",
+					"name": "Имя 2",
+					"from": "2024-03-11 13:00:00",
+					"to": "2024-03-11 13:30:00",
+					"is_paid": "0",
+					"rental_order_id": "77266582",
+					"first_name": "First Test",
+					"phone": "+7 (922) 168-08-23",
+					"new": "1"
+			},
+			{
+					"id": "6450",
+					"name": "Имя 3",
+					"from": "2024-03-11 13:30:00",
+					"to": "2024-03-11 14:00:00",
+					"is_paid": "0",
+					"rental_order_id": "90866012",
+					"first_name": "test1256",
+					"phone": "+7 (928) 168-98-66",
+					"new": "1"
+			},
+			{
+					"id": "6452",
+					"name": "Имя 1",
+					"from": "2024-03-11 16:30:00",
+					"to": "2024-03-11 17:00:00",
+					"is_paid": "0",
+					"rental_order_id": "91155520",
+					"first_name": "Иван",
+					"phone": "+7 (920) 490-82-49",
+					"new": "1"
+			},
+			{
+					"id": "6463",
+					"name": "Имя 1",
+					"from": "2024-03-11 17:30:00",
+					"to": "2024-03-11 18:00:00",
+					"is_paid": "0",
+					"rental_order_id": "93410978",
+					"first_name": "Иван",
+					"phone": "+7 (787) 878-78-78",
+					"new": "1"
+			},
+	],
+	to: 22,
+}
