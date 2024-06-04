@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Parent Frame</title>
-</head>
-<body>
-  <h1>Родительский фрейм</h1>
-	<h2></h2>
-  <iframe id="childFrame" src="child-frame.html" width="500" height="300"></iframe>
+	<head>
+		<title>Parent Frame</title>
+	</head>
+	<body>
+		<h1>Родительский фрейм</h1>
+		<h2></h2>
+		<img class="parent__test-element" width="100" height="100" alt="" />
+		<iframe class="childFrame" src="child-frame.html" width="500" height="300"></iframe>
 
-  <script>
-    const childFrame = document.querySelector('#childFrame');
-		const parentButton = document.querySelector('.parentButton');
-		const h2 = document.querySelector('h2');
+		<button class="parentButton">Отправить сообщение в дочерний фрейм</button>
+		<button class="parentRemove">Удалить дочерний элемент</button>
 
-    // от дочернего фрейма
-    window.addEventListener('message', function(event) {
-      // if (event.origin === '*') { // Проверка источника сообщения
-        console.log('Сообщение от дочернего фрейма:', event.data);
+		<script defer>
+			const childFrame = document.querySelector('.childFrame');
+			const parentButton = document.querySelector('.parentButton');
+			const parentRemove = document.querySelector('.parentRemove');
+			const parentTestElement = document.querySelector('.parent__test-element');
+			const h2 = document.querySelector('h2');
+
+			// от дочернего фрейма
+			window.addEventListener('message', function (event) {
+				// if (event.origin === '*') { // Проверка источника сообщения
+				// console.log('Сообщение от дочернего фрейма:', event.data);
 				h2.innerText = event.data;
-      // }
-    });
+				// }
+			});
 
-    // Отправка сообщения в дочерний фрейм
-    function sendMessageToChild() {
-      const message = 'Сообщение из родительского фрейма';
-      childFrame.contentWindow.postMessage(message, '*');
-    }
+			// Отправка сообщения в дочерний фрейм
+			function sendMessageToChild() {
+				const message = 'Сообщение из родительского фрейма';
+				childFrame.contentWindow.postMessage(message, '*');
+			}
 
-		parentButton.addEventListener('click', sendMessageToChild)
-  </script>
 
-  <button id="parentButton">Отправить сообщение в дочерний фрейм</button>
-</body>
+
+
+			function removeElementFromChild() {
+				const childDocument = childFrame.contentDocument;
+				const elementToRemove = childDocument.querySelector('.child__test-element');
+
+				// Удаляем элемент из дочернего документа
+				if (elementToRemove) {
+					elementToRemove.parentNode.removeChild(elementToRemove);
+					console.log('Элемент удален из дочернего фрейма');
+				} else {
+					console.log('Элемент не найден в дочернем фрейме');
+				}
+			}
+
+			parentButton.addEventListener('click', sendMessageToChild);
+			parentRemove.addEventListener('click', removeElementFromChild);
+		</script>
+	</body>
 </html>

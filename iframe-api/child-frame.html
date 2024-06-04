@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Child Frame</title>
-</head>
-<body>
-  <h1>Дочерний фрейм</h1>
-	<h2></h2>
+	<head>
+		<title>Child Frame</title>
+	</head>
+	<body>
+		<h1>Дочерний фрейм</h1>
+		<h2></h2>
+		<img class="child__test-element" width="100" height="100" alt="" />
 
-  <script>
-		const childButton = documen.querySelector('#childButton');
-		const h2 = document.querySelector('h2');
+		<button class="childButton">Отправить сообщение в родительский фрейм</button>
+		<button class="childRemove">Удалить родительский элемент</button>
 
-    // от родителя
-    window.addEventListener('message', function(event) {
-      // if (event.origin === '*') { // Проверка источника сообщения
-        console.log('Сообщение от родительского фрейма:', event.data);
+		<script defer>
+			const parentWindow = window.parent;
+			const childButton = document.querySelector('.childButton');
+			const childRemove = document.querySelector('.childRemove');
+			const childTestElement = document.querySelector('.child__test-element');
+			const h2 = document.querySelector('h2');
+
+			// от родителя
+			window.addEventListener('message', function (event) {
+				// if (event.origin === '*') { // Проверка источника сообщения
+				console.log('Сообщение от родительского фрейма:', event.data);
 				h2.innerText = event.data;
-      // }
-    });
+				// }
+			});
 
-    // Отправка сообщения в родительский фрейм
-    function sendMessageToParent() {
-      const message = 'Сообщение из дочернего фрейма';
-      window.parent.postMessage(message, '*');
-    }
+			function sendMessageToParent() {
+				const message = 'Сообщение из дочернего фрейма';
+				parentWindow.postMessage(message, '*'); // ???
+			}
 
-		childButton.addEventListener('click', sendMessageToChild)
-  </script>
+			// Отправка сообщения в родительский фрейм
+			function removeParentElement() {
+				const parentDocument = parentWindow.document; // contentDocument ???
 
-  <button id="childButton">Отправить сообщение в родительский фрейм</button>
-</body>
+				const elementToRemove = parentDocument.querySelector('.parent__test-element');
+
+				if (elementToRemove) {
+					elementToRemove.parentNode.removeChild(elementToRemove);
+					console.log('Родительский элемент удален');
+				} else {
+					console.log('Родительский элемент не найден');
+				}
+			}
+
+			childButton.addEventListener('click', sendMessageToParent);
+			childRemove.addEventListener('click', removeParentElement);
+		</script>
+	</body>
 </html>
