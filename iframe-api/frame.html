@@ -14,13 +14,32 @@
   <style>
     .widget{position:fixed;top:0;right:0;left:auto;width:100vw;height:100%;z-index:-1;opacity:0;display:flex;justify-content:flex-end;margin:0;padding:0;border:none;background:rgba(6,9,95,.6);transition:opacity .1s ease}.widget.widget--active{z-index:calc(infinity);opacity:1;transition:opacity .1s ease}.widget__control{position:relative;padding:4px;height:32px;top:38px;right:30px;display:flex;justify-content:center;align-items:center;width:32px;height:32px;border-radius:50%;background-color:#f8f8fe;color:#71758e;border:none;padding:0;margin:0}.widget__control:focus-visible,.widget__control:hover{cursor:pointer;opacity:.6}@media (max-width:768px){.widget__control{position:absolute;right:0;right:18px;top:10px}}body.scroll-fixed { position: fixed;}
   </style>
-    
-  <button class="site-button">Показать виджет</button><div class="widget"><button class="widget__control" aria-label="Управление виджетом"><svg fill="none" height="24" viewBox="0 0 24 24"width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12"stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" /></svg></button>
+
+  <button class="site-button">Показать виджет</button><div class="widget"><button class="widget__control" aria-label="Управление виджетом"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" /></svg></button>
   <iframe class="widget__content" src="https://booking-dev.pay2me.com/boats_100500" style="width:600px;height:100%;border:none"></iframe></div>
-    
+
   <script>
-    var widget=document.querySelector(".widget"),controlWidget=widget.querySelector(".widget__control"),contentWidget=widget.querySelector(".widget__content"),siteButtons=document.querySelectorAll(".site-button"),body=document.querySelector("body"),viewport=document.querySelector('meta[name="viewport"]');viewport.content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no";for(button of siteButtons)button.addEventListener("click",function(n){n.preventDefault();widget.classList.add("widget--active");body.classList.add("scroll-fixed")}),controlWidget.addEventListener("click",function(){widget.classList.remove("widget--active");body.classList.remove("scroll-fixed")});
-  </script> 
+    var widget=document.querySelector(".widget"),
+        controlWidget=widget.querySelector(".widget__control"),
+        contentWidget=widget.querySelector(".widget__content"),
+        siteButtons=document.querySelectorAll(".site-button"),
+        body=document.querySelector("body"),
+        viewport=document.querySelector('meta[name="viewport"]');
+
+      viewport.content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no";
+
+      for (button of siteButtons) {
+        button.addEventListener("click", function(event) {
+          event.preventDefault();widget.classList.add("widget--active");
+          body.classList.add("scroll-fixed")
+        }),
+
+        controlWidget.addEventListener("click",function(){
+          widget.classList.remove("widget--active");
+          body.classList.remove("scroll-fixed")
+        });
+      }
+  </script>
 
 </body>
 </html>
