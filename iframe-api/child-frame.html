@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Child Frame</title>
+</head>
+<body>
+  <h1>Дочерний фрейм</h1>
+	<h2></h2>
+
+  <script>
+		const childButton = documen.querySelector('#childButton');
+		const h2 = document.querySelector('h2');
+
+    // от родителя
+    window.addEventListener('message', function(event) {
+      // if (event.origin === '*') { // Проверка источника сообщения
+        console.log('Сообщение от родительского фрейма:', event.data);
+				h2.innerText = event.data;
+      // }
+    });
+
+    // Отправка сообщения в родительский фрейм
+    function sendMessageToParent() {
+      const message = 'Сообщение из дочернего фрейма';
+      window.parent.postMessage(message, '*');
+    }
+
+		childButton.addEventListener('click', sendMessageToChild)
+  </script>
+
+  <button id="childButton">Отправить сообщение в родительский фрейм</button>
+</body>
+</html>

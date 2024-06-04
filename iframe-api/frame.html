@@ -26,19 +26,24 @@
         body=document.querySelector("body"),
         viewport=document.querySelector('meta[name="viewport"]');
 
-      viewport.content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no";
+    viewport.content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no";
 
-      for (button of siteButtons) {
-        button.addEventListener("click", function(event) {
-          event.preventDefault();widget.classList.add("widget--active");
-          body.classList.add("scroll-fixed")
-        }),
+		for (button of siteButtons) {
+			button.addEventListener("click", function(event) {
+				event.preventDefault();widget.classList.add("widget--active");
+				body.classList.add("scroll-fixed")
+			}),
 
-        controlWidget.addEventListener("click",function(){
-          widget.classList.remove("widget--active");
-          body.classList.remove("scroll-fixed")
-        });
-      }
+			controlWidget.addEventListener("click",function(){
+				widget.classList.remove("widget--active");
+				body.classList.remove("scroll-fixed")
+			});
+		}
+
+		
+		contentWidget.addEventListener('load', function() {
+			contentWidget.contentWindow.postMessage('test text from LK', '*');
+		});
   </script>
 
 </body>
